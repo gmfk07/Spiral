@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d1jm8irpvcdns"]
+
+[ext_resource type="Texture2D" uid="uid://catvvebhnp3kq" path="res://Sprites/UI/reflex_dodge_icon.png" id="1_qxwat"]
+[ext_resource type="Script" path="res://Characters/Ground Combat/reflex_dodge.gd" id="1_tlbp7"]
+[ext_resource type="AudioStream" uid="uid://blkarahrmmpk7" path="res://Audio/pepSound3.mp3" id="3_qytrk"]
+
+[resource]
+script = ExtResource("1_tlbp7")
+type = 1
+target = 0
+cost = 1
+id = "Reflex Dodge"
+icon = ExtResource("1_qxwat")
+tooltip_text = "Gain 2 evade."
+sound = ExtResource("3_qytrk")

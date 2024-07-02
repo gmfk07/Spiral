@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://crcte1kn81q14"]
+
+[ext_resource type="PackedScene" uid="uid://ckyg67aikopjj" path="res://Scenes/UI/battle_card_menu_ui.tscn" id="1_0nx8u"]
+[ext_resource type="Script" path="res://Scenes/UI/battle_card_tooltip_popup.gd" id="1_e2cfa"]
+
+[node name="BattleCardTooltipPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2cfa")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -51.5
+offset_right = 150.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TooltipCard" type="CenterContainer" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BattleCardMenuUI" parent="Background/VBoxContainer/TooltipCard" instance=ExtResource("1_0nx8u")]
+layout_mode = 2
+
+[node name="CardDescription" type="RichTextLabel" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Hoes mad hoes mad hoes mad hoes mad
+hoes mad
+hoes mad hoes mad hoes mad"
+fit_content = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

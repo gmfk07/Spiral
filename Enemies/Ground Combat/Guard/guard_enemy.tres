@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://cuhkeijg5db4s"]
+
+[ext_resource type="PackedScene" uid="uid://bcd32kogh0dq5" path="res://Enemies/Ground Combat/Guard/guard_enemy_ai.tscn" id="1_2fgva"]
+[ext_resource type="Script" path="res://Custom Resources/enemy_stats.gd" id="1_8hyje"]
+[ext_resource type="Texture2D" uid="uid://bof5lpujikft1" path="res://Sprites/Ground Characters/enemy.png" id="1_xnr2j"]
+
+[resource]
+script = ExtResource("1_8hyje")
+ai = ExtResource("1_2fgva")
+max_health = 4
+art = ExtResource("1_xnr2j")

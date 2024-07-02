@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://2qxr6htrpm1l"]
+
+[ext_resource type="Texture2D" uid="uid://0mlkfxhjyrlt" path="res://Sprites/UI/turret_shoot_icon_large.png" id="1_5vqpr"]
+[ext_resource type="Script" path="res://Characters/Space Combat/kinetic_shot_attack.gd" id="1_hts56"]
+[ext_resource type="AudioStream" uid="uid://bs7bv044ofj5x" path="res://Audio/laser2.mp3" id="3_n5wgf"]
+
+[resource]
+script = ExtResource("1_hts56")
+type = 0
+target = 1
+cost = 1
+id = "Kinetic Shot"
+icon = ExtResource("1_5vqpr")
+tooltip_text = "Deal 6 damage."
+sound = ExtResource("3_n5wgf")

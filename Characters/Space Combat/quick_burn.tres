@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bohfa5ht3teat"]
+
+[ext_resource type="Texture2D" uid="uid://oblbayclyr8l" path="res://Sprites/UI/quick_burn_icon_large.png" id="1_1viak"]
+[ext_resource type="Script" path="res://Characters/Space Combat/quick_burn.gd" id="2_1poxv"]
+[ext_resource type="AudioStream" uid="uid://cw1cqp2428bpo" path="res://Audio/phaseJump2.mp3" id="3_nsrgx"]
+
+[resource]
+script = ExtResource("2_1poxv")
+type = 1
+target = 0
+cost = 1
+id = ""
+icon = ExtResource("1_1viak")
+tooltip_text = "Gain 6 evade."
+sound = ExtResource("3_nsrgx")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://ucfrmjjunva7"]
+
+[ext_resource type="PackedScene" uid="uid://cqq8gm22dqli" path="res://Enemies/Space Combat/Pirate/pirate_ai.tscn" id="1_i6fjr"]
+[ext_resource type="Script" path="res://Custom Resources/enemy_stats.gd" id="1_pwhpp"]
+[ext_resource type="Texture2D" uid="uid://7hev238npxtc" path="res://Sprites/Ships/vehicle-1.png" id="1_t7xiv"]
+
+[resource]
+script = ExtResource("1_pwhpp")
+ai = ExtResource("1_i6fjr")
+max_health = 10
+art = ExtResource("1_t7xiv")

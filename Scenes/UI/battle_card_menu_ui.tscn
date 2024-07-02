@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckyg67aikopjj"]
+
+[ext_resource type="Script" path="res://Scenes/UI/battle_card_menu_ui.gd" id="1_0frp4"]
+[ext_resource type="Theme" uid="uid://f2d0gj7br2yh" path="res://main_theme.tres" id="2_qg5rf"]
+[ext_resource type="StyleBox" uid="uid://dtuumd4bmhr1g" path="res://Scenes/Card UI/card_dragging_stylebox.tres" id="3_i2nbh"]
+[ext_resource type="Texture2D" uid="uid://cn6xf4f3typ2m" path="res://Sprites/UI/turret_shoot_icon.png" id="4_775rj"]
+
+[node name="BattleCardMenuUI" type="CenterContainer"]
+offset_right = 50.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+script = ExtResource("1_0frp4")
+
+[node name="Visuals" type="Control" parent="."]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 2
+theme = ExtResource("2_qg5rf")
+
+[node name="Panel" type="Panel" parent="Visuals"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_i2nbh")
+
+[node name="Cost" type="Label" parent="Visuals"]
+layout_mode = 1
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 18.0
+theme = ExtResource("2_qg5rf")
+text = "2"
+horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Visuals"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -15.5
+offset_right = 16.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_775rj")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="Visuals" to="." method="_on_visuals_gui_input"]
+[connection signal="mouse_entered" from="Visuals" to="." method="_on_visuals_mouse_entered"]
+[connection signal="mouse_exited" from="Visuals" to="." method="_on_visuals_mouse_exited"]

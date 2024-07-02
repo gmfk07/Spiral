@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://cgkyswprdpr72"]
+
+[ext_resource type="PackedScene" uid="uid://dtgrm40p4lnf" path="res://Enemies/Space Combat/Fighter/fighter_enemy_ai.tscn" id="1_784ce"]
+[ext_resource type="Script" path="res://Custom Resources/enemy_stats.gd" id="1_sch0d"]
+[ext_resource type="Texture2D" uid="uid://egtvoom5kpwa" path="res://Sprites/Ships/Ship1.png" id="1_urmf1"]
+
+[resource]
+script = ExtResource("1_sch0d")
+ai = ExtResource("1_784ce")
+max_health = 8
+art = ExtResource("1_urmf1")

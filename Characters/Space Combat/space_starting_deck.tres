@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleCardPile" load_steps=5 format=3 uid="uid://b8w3uqtt307rj"]
+
+[ext_resource type="Resource" uid="uid://2qxr6htrpm1l" path="res://Characters/Space Combat/kinetic_shot_attack.tres" id="1_4t2xu"]
+[ext_resource type="Script" path="res://Custom Resources/battle_card_pile.gd" id="1_b5se2"]
+[ext_resource type="Resource" uid="uid://b0ywduf4671rr" path="res://Characters/Space Combat/micromissile_storm.tres" id="2_5ox4h"]
+[ext_resource type="Resource" uid="uid://bohfa5ht3teat" path="res://Characters/Space Combat/quick_burn.tres" id="2_wb7yg"]
+
+[resource]
+script = ExtResource("1_b5se2")
+battle_cards = Array[Resource("res://Custom Resources/battle_card.gd")]([ExtResource("1_4t2xu"), ExtResource("1_4t2xu"), ExtResource("1_4t2xu"), ExtResource("1_4t2xu"), ExtResource("2_5ox4h"), ExtResource("2_5ox4h"), ExtResource("2_wb7yg"), ExtResource("2_wb7yg"), ExtResource("2_wb7yg"), ExtResource("2_wb7yg")])

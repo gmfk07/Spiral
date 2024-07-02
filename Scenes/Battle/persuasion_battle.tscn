@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7lcwbt533j5e"]
+
+[ext_resource type="Texture2D" uid="uid://dep44umo22auj" path="res://Sprites/Ground Backgrounds/spaceship_interior.png" id="1_qowh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aokmq"]
+size = Vector2(512, 200)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-95, -58)
+scale = Vector2(0.485835, 0.4489)
+texture = ExtResource("1_qowh6")
+centered = false
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(256, 100)
+shape = SubResource("RectangleShape2D_aokmq")
+debug_color = Color(0, 0.6, 0.701961, 0.227451)

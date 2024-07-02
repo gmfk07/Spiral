@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjg5drf1ldboy"]
+
+[ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_o6ab1"]
+[ext_resource type="PackedScene" uid="uid://donkkfyuklf85" path="res://Scenes/UI/story.tscn" id="2_i16a1"]
+[ext_resource type="Resource" uid="uid://dxr1jx80b6e2o" path="res://Characters/Ground Combat/ground_combat_player_character.tres" id="2_u2dex"]
+[ext_resource type="Resource" uid="uid://chym5sv5wn57l" path="res://Characters/Space Combat/space_combat_character.tres" id="3_nyop8"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_o6ab1")
+ground_combat_character = ExtResource("2_u2dex")
+space_combat_character = ExtResource("3_nyop8")
+
+[node name="Story" parent="." instance=ExtResource("2_i16a1")]
+unique_name_in_owner = true
+
+[node name="CurrentView" type="Node" parent="."]
+unique_name_in_owner = true

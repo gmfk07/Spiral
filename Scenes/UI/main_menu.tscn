@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://c477vw4c2ybyc"]
+
+[ext_resource type="Script" path="res://Scenes/UI/main_menu.gd" id="1_2qfjq"]
+
+[sub_resource type="Gradient" id="Gradient_v0j1c"]
+colors = PackedColorArray(0, 0, 0, 1, 0.192157, 0.243137, 0.298039, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2gb5b"]
+gradient = SubResource("Gradient_v0j1c")
+width = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_h5o4u"]
+font_size = 32
+shadow_color = Color(0.141176, 0.341176, 0.52549, 0.709804)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2qfjq")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_2gb5b")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 9.0
+offset_right = 36.0
+offset_bottom = 35.0
+grow_horizontal = 2
+text = "SPIRAL"
+label_settings = SubResource("LabelSettings_h5o4u")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -22.0
+offset_right = 30.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="NewRun" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewRun" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewRun" to="." method="_on_new_run_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

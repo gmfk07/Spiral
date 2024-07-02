@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://seoqy7xgotwf"]
+
+[ext_resource type="Script" path="res://Custom Resources/battle_stats.gd" id="1_any37"]
+[ext_resource type="PackedScene" uid="uid://5ncj8butti5y" path="res://Battles/pirate_and_fighter.tscn" id="1_tght6"]
+
+[resource]
+script = ExtResource("1_any37")
+weight = 2.0
+enemies = ExtResource("1_tght6")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcd32kogh0dq5"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy/enemy_action_picker.gd" id="1_u2dr7"]
+[ext_resource type="Script" path="res://Enemies/Ground Combat/Guard/guard_melee_action.gd" id="2_0bbd6"]
+[ext_resource type="Texture2D" uid="uid://ckgtrxw4elmb3" path="res://Sprites/UI/damage_icon.png" id="3_gop5t"]
+[ext_resource type="Script" path="res://Custom Resources/intent.gd" id="3_v6epx"]
+[ext_resource type="AudioStream" uid="uid://ca7vnipd3hgj5" path="res://Audio/spaceTrash2.mp3" id="5_cm7qj"]
+[ext_resource type="Script" path="res://Enemies/Ground Combat/Guard/guard_evade_action.gd" id="6_jyhxn"]
+[ext_resource type="Texture2D" uid="uid://ccgloufla3deq" path="res://Sprites/UI/evade_icon.png" id="7_7bllu"]
+[ext_resource type="AudioStream" uid="uid://mvt6i1qdj2bs" path="res://Audio/powerUp6.mp3" id="8_wdxbo"]
+
+[sub_resource type="Resource" id="Resource_ockc2"]
+script = ExtResource("3_v6epx")
+number = "3"
+icon = ExtResource("3_gop5t")
+
+[sub_resource type="Resource" id="Resource_gnbwh"]
+script = ExtResource("3_v6epx")
+number = "2"
+icon = ExtResource("7_7bllu")
+
+[node name="GuardEnemyAI" type="Node"]
+script = ExtResource("1_u2dr7")
+
+[node name="GuardMeleeAction" type="Node" parent="."]
+script = ExtResource("2_0bbd6")
+intent = SubResource("Resource_ockc2")
+sound = ExtResource("5_cm7qj")
+type = 1
+chance_weight = 1.0
+
+[node name="GuardEvadeAction" type="Node" parent="."]
+script = ExtResource("6_jyhxn")
+intent = SubResource("Resource_gnbwh")
+sound = ExtResource("8_wdxbo")
+chance_weight = 1.0

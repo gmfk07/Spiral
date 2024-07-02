@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://donkkfyuklf85"]
+
+[ext_resource type="Script" path="res://Scenes/UI/story_runner.gd" id="1_0cu4r"]
+[ext_resource type="Script" path="res://Scenes/UI/story.gd" id="1_vlom7"]
+[ext_resource type="Resource" uid="uid://tjl63mi4u3y2" path="res://Ink/test.ink" id="2_q0w3l"]
+
+[sub_resource type="Gradient" id="Gradient_kior8"]
+colors = PackedColorArray(0, 0, 0, 1, 0.192157, 0.243137, 0.298039, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0c8su"]
+gradient = SubResource("Gradient_kior8")
+width = 50
+
+[node name="Story" type="Node2D"]
+script = ExtResource("1_vlom7")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 512.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_0c8su")
+
+[node name="StoryRunner" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 512.0
+offset_bottom = 287.0
+script = ExtResource("1_0cu4r")
+story = ExtResource("2_q0w3l")

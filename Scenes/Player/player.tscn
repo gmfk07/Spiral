@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://38ev2dayttmj"]
+
+[ext_resource type="Texture2D" uid="uid://bhsv4olqpb483" path="res://Sprites/Ships/Ship2.png" id="1_6qqau"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_143j5"]
+[ext_resource type="PackedScene" uid="uid://e8cs4xwx44ke" path="res://Scenes/UI/stats_ui.tscn" id="2_51vg8"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_143j5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6qqau")
+
+[node name="StatsUI" parent="." instance=ExtResource("2_51vg8")]
+offset_left = -45.0
+offset_top = 20.0
+offset_right = 45.0
+offset_bottom = 40.0
