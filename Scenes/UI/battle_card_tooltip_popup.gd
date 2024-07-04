@@ -1,5 +1,5 @@
 class_name BattleCardTooltipPopup
-extends Control
+extends CardTooltipPopup
 
 const CARD_MENU_UI_SCENE := preload("res://Scenes/UI/battle_card_menu_ui.tscn")
 
@@ -9,10 +9,6 @@ const CARD_MENU_UI_SCENE := preload("res://Scenes/UI/battle_card_menu_ui.tscn")
 func _ready() -> void:
 	for card: BattleCardMenuUI in tooltip_card.get_children():
 		card.queue_free()
-	
-	hide_tooltip()
-	await get_tree().create_timer(3.0).timeout
-	show_tooltip(preload("res://Characters/Ground Combat/punch_attack.tres"))
 
 func show_tooltip(battle_card: BattleCard) -> void:
 	var new_card := CARD_MENU_UI_SCENE.instantiate() as BattleCardMenuUI

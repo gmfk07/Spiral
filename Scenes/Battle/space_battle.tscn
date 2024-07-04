@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://ordrrfj4tb4o"]
+[gd_scene load_steps=25 format=3 uid="uid://ordrrfj4tb4o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_7d35f"]
 [ext_resource type="Resource" uid="uid://chym5sv5wn57l" path="res://Characters/Space Combat/space_combat_character.tres" id="2_g2pif"]
+[ext_resource type="Resource" uid="uid://seoqy7xgotwf" path="res://Battles/pirate_and_fighter.tres" id="2_o1q45"]
 [ext_resource type="AudioStream" uid="uid://g4xj5ln47pne" path="res://Audio/ObservingTheStar.ogg" id="3_vmyf4"]
 [ext_resource type="Texture2D" uid="uid://br0fnexp682be" path="res://Sprites/Space Backgrounds/Blue Nebula/Blue Nebula 1 - 1024x1024.png" id="4_hq32v"]
 [ext_resource type="Script" path="res://Scenes/Battle/enemy_handler.gd" id="5_lj1lt"]
@@ -17,14 +18,18 @@
 [ext_resource type="PackedScene" uid="uid://bwddjlw4mftkg" path="res://Scenes/Card UI/energy_ui.tscn" id="15_ss2lx"]
 [ext_resource type="Theme" uid="uid://f2d0gj7br2yh" path="res://main_theme.tres" id="16_n32c8"]
 [ext_resource type="FontFile" uid="uid://cad427yuixp3b" path="res://Fonts/m5x7.ttf" id="17_dinyg"]
+[ext_resource type="PackedScene" uid="uid://bve5g2o1u7jq8" path="res://Scenes/UI/card_pile_open_button.tscn" id="18_8vk4q"]
 [ext_resource type="Script" path="res://Scenes/UI/red_flash.gd" id="18_km3gy"]
 [ext_resource type="PackedScene" uid="uid://bwxrwr0iixvex" path="res://Scenes/UI/battle_over_panel.tscn" id="19_s2u7f"]
+[ext_resource type="Texture2D" uid="uid://cwey0j83hn857" path="res://Sprites/UI/discard_icon.png" id="19_vartw"]
+[ext_resource type="PackedScene" uid="uid://dq2fodtakmj7l" path="res://Scenes/UI/card_pile_view.tscn" id="22_caecw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8772h"]
 size = Vector2(512, 200)
 
 [node name="SpaceBattle" type="Node2D"]
 script = ExtResource("1_7d35f")
+battle_stats = ExtResource("2_o1q45")
 char_stats = ExtResource("2_g2pif")
 music = ExtResource("3_vmyf4")
 metadata/_edit_lock_ = true
@@ -85,10 +90,10 @@ offset_top = 3.0
 offset_bottom = 54.0
 
 [node name="EnergyUI" parent="BattleUI" instance=ExtResource("15_ss2lx")]
-offset_left = 4.0
-offset_top = -24.0
-offset_right = 22.0
-offset_bottom = -6.0
+offset_left = 5.0
+offset_top = -73.0
+offset_right = 39.0
+offset_bottom = -39.0
 char_stats = ExtResource("2_g2pif")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
@@ -98,15 +103,51 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -20.0
-offset_right = -4.0
-offset_bottom = -5.0
+offset_left = -96.0
+offset_top = -71.0
+offset_right = -2.0
+offset_bottom = -42.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("16_n32c8")
 theme_override_fonts/font = ExtResource("17_dinyg")
+theme_override_font_sizes/font_size = 32
 text = "End Turn"
+
+[node name="DrawPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("18_8vk4q")]
+unique_name_in_owner = true
+offset_left = 6.0
+offset_top = 252.0
+offset_right = 38.0
+offset_bottom = 284.0
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DrawPileButton"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 18.0
+offset_right = 27.0
+offset_bottom = 31.0
+text = "99"
+horizontal_alignment = 2
+
+[node name="DiscardPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("18_8vk4q")]
+unique_name_in_owner = true
+offset_left = 476.0
+offset_top = 252.0
+offset_right = 508.0
+offset_bottom = 284.0
+texture_normal = ExtResource("19_vartw")
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DiscardPileButton"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 18.0
+offset_right = 27.0
+offset_bottom = 31.0
+text = "99"
+horizontal_alignment = 2
 
 [node name="RedFlash" type="CanvasLayer" parent="."]
 layer = 2
@@ -130,4 +171,14 @@ one_shot = true
 layer = 2
 
 [node name="BattleOverPanel" parent="BattleOverLayer" instance=ExtResource("19_s2u7f")]
+visible = false
+
+[node name="CardPileViews" type="CanvasLayer" parent="."]
+
+[node name="DrawPileView" parent="CardPileViews" instance=ExtResource("22_caecw")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DiscardPileView" parent="CardPileViews" instance=ExtResource("22_caecw")]
+unique_name_in_owner = true
 visible = false

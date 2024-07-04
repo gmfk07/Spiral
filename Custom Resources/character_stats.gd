@@ -1,14 +1,14 @@
 class_name CharacterStats
 extends Stats
 
-@export var starting_deck: BattleCardPile
+@export var starting_deck: CardPile
 @export var cards_per_turn: int
 @export var max_energy: int
 
 var energy: int: set = set_energy
-var deck: BattleCardPile
-var discard: BattleCardPile
-var draw_pile: BattleCardPile
+var deck: CardPile
+var discard: CardPile
+var draw_pile: CardPile
 
 func set_energy(value: int) -> void:
 	energy = value
@@ -33,6 +33,6 @@ func create_instance() -> Resource:
 	instance.evade = 0
 	instance.reset_energy()
 	instance.deck = instance.starting_deck.duplicate()
-	instance.draw_pile = BattleCardPile.new()
-	instance.discard = BattleCardPile.new()
+	instance.draw_pile = CardPile.new()
+	instance.discard = CardPile.new()
 	return instance

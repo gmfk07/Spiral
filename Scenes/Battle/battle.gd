@@ -19,18 +19,22 @@ func _ready() -> void:
 	Events.player_died.connect(_on_player_died)
 	
 	start_battle()
+	battle_ui.initialize_card_pile_ui()
 	
 func start_battle() -> void:
 	get_tree().paused = false
 	MusicPlayer.play(music, true)
+	char_stats = char_stats.create_instance()
+	
+	player_handler.start_battle(char_stats)
 	
 	battle_ui.char_stats = char_stats
 	player.stats = char_stats
+	
 	enemy_handler.setup_enemies(battle_stats)
 	enemy_handler.reset_enemy_actions()
 	
-	player_handler.start_battle(char_stats)
-	# battle_ui.initialize_card_pile_ui()
+	battle_ui.initialize_card_pile_ui()
 
 func _on_enemies_child_order_changed() -> void:
 	if enemy_handler.get_child_count() == 0:

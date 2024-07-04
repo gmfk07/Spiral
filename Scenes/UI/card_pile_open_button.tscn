@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bve5g2o1u7jq8"]
+
+[ext_resource type="Texture2D" uid="uid://cdtf20nncqla1" path="res://Sprites/UI/draw_icon.png" id="1_iy7qw"]
+[ext_resource type="Script" path="res://Scenes/UI/card_pile_open_button.gd" id="2_x4h7t"]
+
+[node name="CardPileOpenButton" type="TextureButton"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_iy7qw")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_x4h7t")

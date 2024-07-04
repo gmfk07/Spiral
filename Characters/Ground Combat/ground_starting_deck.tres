@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=4 format=3 uid="uid://bag3dugdnsf6l"]
+
+[ext_resource type="Resource" uid="uid://b4qoebpcui84c" path="res://Characters/Ground Combat/punch_attack.tres" id="1_ei80y"]
+[ext_resource type="Script" path="res://Custom Resources/card_pile.gd" id="1_sgl5p"]
+[ext_resource type="Resource" uid="uid://d1jm8irpvcdns" path="res://Characters/Ground Combat/reflex_dodge.tres" id="2_dkny7"]
+
+[resource]
+script = ExtResource("1_sgl5p")
+cards = Array[Resource("res://Custom Resources/card.gd")]([ExtResource("1_ei80y"), ExtResource("1_ei80y"), ExtResource("1_ei80y"), ExtResource("1_ei80y"), ExtResource("1_ei80y"), ExtResource("2_dkny7"), ExtResource("2_dkny7"), ExtResource("2_dkny7"), ExtResource("2_dkny7"), ExtResource("2_dkny7")])

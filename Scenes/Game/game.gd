@@ -16,6 +16,10 @@ const SPACE_BATTLE_SCENE := preload("res://Scenes/Battle/space_battle.tscn")
 func _ready():
 	setup_enemy_stats_dict()
 	setup_event_connections()
+	
+	if not character:
+		var space_character := preload("res://Characters/Space Combat/space_combat_character.tres")
+		character = space_character.create_instance()
 
 func setup_enemy_stats_dict() -> void:
 	enemy_stats_dict["pirate_and_fighter"] = preload("res://Battles/pirate_and_fighter.tres")

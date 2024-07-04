@@ -12,6 +12,9 @@ const HOVER_STYLEBOX := preload("res://Scenes/Card UI/card_hover_style_box.tres"
 @onready var cost: Label = $Visuals/Cost
 @onready var icon: TextureRect = $Visuals/Icon
 
+func _ready():
+	panel.set("theme_override_styles/panel", BASE_STYLEBOX)
+
 func _on_visuals_gui_input(event: InputEvent):
 	if event.is_action_pressed("left_mouse"):
 		tooltip_requested.emit(battle_card)
