@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=4 format=3 uid="uid://qmg58hw65ri0"]
+
+[ext_resource type="Resource" uid="uid://bgu34npr3txog" path="res://Cards/Persuasion/aggressive_1.tres" id="1_o6gir"]
+[ext_resource type="Script" path="res://Custom Resources/card_pile.gd" id="1_r0hn3"]
+[ext_resource type="Resource" uid="uid://bxh5c8m6jugyg" path="res://Cards/Persuasion/friendly_1.tres" id="2_tj57l"]
+
+[resource]
+script = ExtResource("1_r0hn3")
+cards = Array[Resource("res://Custom Resources/card.gd")]([ExtResource("1_o6gir"), ExtResource("1_o6gir"), ExtResource("1_o6gir"), ExtResource("1_o6gir"), ExtResource("1_o6gir"), ExtResource("2_tj57l"), ExtResource("2_tj57l"), ExtResource("2_tj57l"), ExtResource("2_tj57l"), ExtResource("2_tj57l")])

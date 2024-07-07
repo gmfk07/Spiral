@@ -1,17 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfykohbpw0kgk"]
+[gd_scene load_steps=21 format=3 uid="uid://dfykohbpw0kgk"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_60rtf"]
 [ext_resource type="Resource" uid="uid://chym5sv5wn57l" path="res://Characters/Space Combat/space_combat_character.tres" id="2_bpwqo"]
-[ext_resource type="Resource" uid="uid://m6ku3nsh73p" path="res://Enemy Encounters/two_pirates.tres" id="2_nfawm"]
 [ext_resource type="AudioStream" uid="uid://g4xj5ln47pne" path="res://Audio/ObservingTheStar.ogg" id="3_hvnxx"]
 [ext_resource type="Texture2D" uid="uid://dep44umo22auj" path="res://Sprites/Ground Backgrounds/spaceship_interior.png" id="4_yu1fa"]
 [ext_resource type="Script" path="res://Scenes/Battle/enemy_handler.gd" id="5_rgijo"]
-[ext_resource type="PackedScene" uid="uid://hpfvbfq1itq7" path="res://Scenes/Battle/Enemy/enemy.tscn" id="7_8vobb"]
+[ext_resource type="PackedScene" uid="uid://hpfvbfq1itq7" path="res://Scenes/Enemy/enemy.tscn" id="6_88j06"]
 [ext_resource type="Resource" uid="uid://cuhkeijg5db4s" path="res://Enemies/Ground Combat/Guard/guard_enemy.tres" id="7_bi4bc"]
 [ext_resource type="PackedScene" uid="uid://cf275tnkb7cw2" path="res://Scenes/Card Target Selector/battle_card_target_selector.tscn" id="8_cehmk"]
-[ext_resource type="Script" path="res://Scenes/Battle/Player/player_character_handler.gd" id="10_6ufel"]
+[ext_resource type="Script" path="res://Scenes/Player/player_handler.gd" id="10_p0mga"]
 [ext_resource type="Resource" uid="uid://dxr1jx80b6e2o" path="res://Characters/Ground Combat/ground_combat_player_character.tres" id="11_7p816"]
-[ext_resource type="PackedScene" uid="uid://38ev2dayttmj" path="res://Scenes/Battle/Player/player.tscn" id="11_wy45f"]
+[ext_resource type="PackedScene" uid="uid://38ev2dayttmj" path="res://Scenes/Player/player.tscn" id="11_w068i"]
 [ext_resource type="Script" path="res://Scenes/UI/battle_ui.gd" id="12_xi7l5"]
 [ext_resource type="Script" path="res://Scenes/UI/hand.gd" id="13_w8ru5"]
 [ext_resource type="PackedScene" uid="uid://cf3sitpxvwk4k" path="res://Scenes/UI/tooltip.tscn" id="14_wbevq"]
@@ -19,17 +18,13 @@
 [ext_resource type="Theme" uid="uid://f2d0gj7br2yh" path="res://main_theme.tres" id="16_fy7vm"]
 [ext_resource type="FontFile" uid="uid://cad427yuixp3b" path="res://Fonts/m5x7.ttf" id="17_65sgm"]
 [ext_resource type="Script" path="res://Scenes/UI/red_flash.gd" id="18_2ucb3"]
-[ext_resource type="PackedScene" uid="uid://bve5g2o1u7jq8" path="res://Scenes/UI/card_pile_open_button.tscn" id="19_5nd68"]
 [ext_resource type="PackedScene" uid="uid://bwxrwr0iixvex" path="res://Scenes/UI/battle_over_panel.tscn" id="19_ivul6"]
-[ext_resource type="Texture2D" uid="uid://cwey0j83hn857" path="res://Sprites/UI/discard_icon.png" id="20_s5514"]
-[ext_resource type="PackedScene" uid="uid://dq2fodtakmj7l" path="res://Scenes/UI/card_pile_view.tscn" id="21_y86so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8772h"]
 size = Vector2(512, 200)
 
 [node name="GroundBattle" type="Node2D"]
 script = ExtResource("1_60rtf")
-enemy_encounter_stats = ExtResource("2_nfawm")
 char_stats = ExtResource("11_7p816")
 music = ExtResource("3_hvnxx")
 metadata/_edit_lock_ = true
@@ -51,17 +46,17 @@ debug_color = Color(0, 0.6, 0.701961, 0.227451)
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("5_rgijo")
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("7_8vobb")]
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("6_88j06")]
 position = Vector2(389, 205)
 stats = ExtResource("7_bi4bc")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("8_cehmk")]
 
-[node name="PlayerCharacterHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
-script = ExtResource("10_6ufel")
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("10_p0mga")
 hand = NodePath("../BattleUI/Hand")
 
-[node name="Player" parent="." instance=ExtResource("11_wy45f")]
+[node name="Player" parent="." instance=ExtResource("11_w068i")]
 position = Vector2(140, 201)
 stats = ExtResource("11_7p816")
 
@@ -87,10 +82,10 @@ offset_top = 3.0
 offset_bottom = 54.0
 
 [node name="EnergyUI" parent="BattleUI" instance=ExtResource("15_sig4d")]
-offset_left = 5.0
-offset_top = -73.0
-offset_right = 39.0
-offset_bottom = -39.0
+offset_left = 4.0
+offset_top = -24.0
+offset_right = 22.0
+offset_bottom = -6.0
 char_stats = ExtResource("2_bpwqo")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
@@ -100,51 +95,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -71.0
-offset_right = -2.0
-offset_bottom = -42.0
+offset_left = -56.0
+offset_top = -20.0
+offset_right = -4.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("16_fy7vm")
 theme_override_fonts/font = ExtResource("17_65sgm")
-theme_override_font_sizes/font_size = 32
 text = "End Turn"
-
-[node name="DrawPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("19_5nd68")]
-unique_name_in_owner = true
-offset_left = 6.0
-offset_top = 252.0
-offset_right = 38.0
-offset_bottom = 284.0
-counter = NodePath("Counter")
-
-[node name="Counter" type="Label" parent="BattleUI/DrawPileButton"]
-layout_mode = 0
-offset_left = -13.0
-offset_top = 19.0
-offset_right = 27.0
-offset_bottom = 32.0
-text = "99"
-horizontal_alignment = 2
-
-[node name="DiscardPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("19_5nd68")]
-unique_name_in_owner = true
-offset_left = 476.0
-offset_top = 252.0
-offset_right = 508.0
-offset_bottom = 284.0
-texture_normal = ExtResource("20_s5514")
-counter = NodePath("Counter")
-
-[node name="Counter" type="Label" parent="BattleUI/DiscardPileButton"]
-layout_mode = 0
-offset_left = -13.0
-offset_top = 19.0
-offset_right = 27.0
-offset_bottom = 32.0
-text = "99"
-horizontal_alignment = 2
 
 [node name="RedFlash" type="CanvasLayer" parent="."]
 layer = 2
@@ -168,14 +127,4 @@ one_shot = true
 layer = 2
 
 [node name="BattleOverPanel" parent="BattleOverLayer" instance=ExtResource("19_ivul6")]
-visible = false
-
-[node name="CardPileViews" type="CanvasLayer" parent="."]
-
-[node name="DrawPileView" parent="CardPileViews" instance=ExtResource("21_y86so")]
-unique_name_in_owner = true
-visible = false
-
-[node name="DiscardPileView" parent="CardPileViews" instance=ExtResource("21_y86so")]
-unique_name_in_owner = true
 visible = false

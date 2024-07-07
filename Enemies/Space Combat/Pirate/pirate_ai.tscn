@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cqq8gm22dqli"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy/enemy_action_picker.gd" id="1_lm7rs"]
+[ext_resource type="Script" path="res://Scenes/Battle/Enemy/enemy_action_picker.gd" id="1_lm7rs"]
 [ext_resource type="Script" path="res://Enemies/Space Combat/Pirate/pirate_attack_action.gd" id="2_lwmfk"]
 [ext_resource type="Script" path="res://Enemies/Space Combat/Pirate/pirate_evade_action.gd" id="3_uvksg"]
 [ext_resource type="Texture2D" uid="uid://cn6xf4f3typ2m" path="res://Sprites/UI/turret_shoot_icon.png" id="3_x3y64"]

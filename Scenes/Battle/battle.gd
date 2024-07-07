@@ -1,12 +1,12 @@
 class_name Battle
 extends Node2D
 
-@export var battle_stats: BattleStats
+@export var enemy_encounter_stats: EnemyEncounterStats
 @export var char_stats: CharacterStats
 @export var music: AudioStream
 
 @onready var battle_ui: BattleUI = $BattleUI as BattleUI
-@onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
+@onready var player_handler: PlayerCharacterHandler = $PlayerCharacterHandler as PlayerCharacterHandler
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 @onready var player: Player = $Player as Player
 
@@ -31,7 +31,7 @@ func start_battle() -> void:
 	battle_ui.char_stats = char_stats
 	player.stats = char_stats
 	
-	enemy_handler.setup_enemies(battle_stats)
+	enemy_handler.setup_enemies(enemy_encounter_stats)
 	enemy_handler.reset_enemy_actions()
 	
 	battle_ui.initialize_card_pile_ui()

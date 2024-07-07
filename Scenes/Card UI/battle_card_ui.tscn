@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://p2pddrlg8x0s"]
+
+[ext_resource type="Theme" uid="uid://f2d0gj7br2yh" path="res://main_theme.tres" id="1_xecv8"]
+[ext_resource type="Script" path="res://Scenes/Card UI/battle_card_ui.gd" id="2_kk12q"]
+[ext_resource type="StyleBox" uid="uid://dtuumd4bmhr1g" path="res://Scenes/Card UI/card_dragging_stylebox.tres" id="3_hkjlr"]
+[ext_resource type="Texture2D" uid="uid://cn6xf4f3typ2m" path="res://Sprites/UI/turret_shoot_icon.png" id="4_lbfks"]
+[ext_resource type="Script" path="res://Scenes/Card UI/card_state_machine.gd" id="5_3kw2o"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Battle Card States/battle_card_base_state.gd" id="6_8vd8f"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Battle Card States/battle_card_clicked_state.gd" id="7_ppfcc"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Battle Card States/battle_card_dragging_state.gd" id="8_djabn"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Battle Card States/battle_card_released_state.gd" id="9_gctx4"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Battle Card States/battle_card_aiming_state.gd" id="10_gtffi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4exbk"]
+size = Vector2(49.5, 59.5)
+
+[node name="BattleCardUI" type="Control"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 60.0
+theme = ExtResource("1_xecv8")
+script = ExtResource("2_kk12q")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_hkjlr")
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 1
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 18.0
+theme = ExtResource("1_xecv8")
+text = "2"
+horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -15.5
+offset_right = 16.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lbfks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(24.5, 29.5)
+shape = SubResource("RectangleShape2D_4exbk")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_3kw2o")
+initial_state = NodePath("BattleCardBaseState")
+
+[node name="BattleCardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_8vd8f")
+
+[node name="BattleClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_ppfcc")
+state = 1
+
+[node name="BattleDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_djabn")
+state = 2
+
+[node name="BattleReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("9_gctx4")
+state = 4
+
+[node name="BattleAimingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("10_gtffi")
+state = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

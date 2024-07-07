@@ -1,16 +1,12 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://dxr1jx80b6e2o"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://dxr1jx80b6e2o"]
 
 [ext_resource type="Texture2D" uid="uid://ud0yc5hciysv" path="res://Sprites/Ground Characters/kid.png" id="1_2toyp"]
 [ext_resource type="Script" path="res://Custom Resources/character_stats.gd" id="1_unbk8"]
-[ext_resource type="Script" path="res://Custom Resources/card_pile.gd" id="3_m3vjg"]
-
-[sub_resource type="Resource" id="Resource_sdato"]
-script = ExtResource("3_m3vjg")
-cards = Array[Resource("res://Custom Resources/card.gd")]([])
+[ext_resource type="Resource" uid="uid://bag3dugdnsf6l" path="res://Characters/Ground Combat/ground_starting_deck.tres" id="3_we8rp"]
 
 [resource]
 script = ExtResource("1_unbk8")
-starting_deck = SubResource("Resource_sdato")
+starting_deck = ExtResource("3_we8rp")
 cards_per_turn = 4
 max_energy = 3
 max_health = 5

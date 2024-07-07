@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bdt3lmm8dvijf"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy/enemy_action_picker.gd" id="1_pbapd"]
+[ext_resource type="Script" path="res://Scenes/Battle/Enemy/enemy_action_picker.gd" id="1_pbapd"]
 [ext_resource type="Script" path="res://Enemies/Space Combat/Fighter/fighter_attack_action.gd" id="2_s3d20"]
 [ext_resource type="Script" path="res://Enemies/Space Combat/Fighter/fighter_evade_action.gd" id="3_doswg"]
 [ext_resource type="Texture2D" uid="uid://cn6xf4f3typ2m" path="res://Sprites/UI/turret_shoot_icon.png" id="3_dr2tb"]

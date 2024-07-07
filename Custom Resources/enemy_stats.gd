@@ -1,4 +1,4 @@
 class_name EnemyStats
-extends Stats
+extends BattleStats
 
 @export var ai: PackedScene

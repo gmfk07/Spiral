@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PersuasionCard" load_steps=3 format=3 uid="uid://bxh5c8m6jugyg"]
+
+[ext_resource type="Script" path="res://Custom Resources/persuasion_card.gd" id="1_2orf8"]
+[ext_resource type="Texture2D" uid="uid://bacibls7yry8u" path="res://Sprites/UI/dummy_icon.png" id="1_8dbrh"]
+
+[resource]
+script = ExtResource("1_2orf8")
+suit = 3
+value = 1
+id = "Smile"
+icon = ExtResource("1_8dbrh")
+tooltip_text = ""

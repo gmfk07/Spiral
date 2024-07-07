@@ -4,14 +4,14 @@ extends Node2D
 func _ready() -> void:
 	Events.enemy_action_completed.connect(_on_enemy_action_completed)
 
-func setup_enemies(battle_stats: BattleStats) -> void:
-	if not battle_stats:
+func setup_enemies(enemy_encounter_stats: EnemyEncounterStats) -> void:
+	if not enemy_encounter_stats:
 		return
 	
 	for enemy: Enemy in get_children():
 		enemy.queue_free()
 	
-	var all_new_enemies := battle_stats.enemies.instantiate()
+	var all_new_enemies := enemy_encounter_stats.enemies.instantiate()
 	
 	for new_enemy: Node2D in all_new_enemies.get_children():
 		var new_enemy_child := new_enemy.duplicate() as Enemy

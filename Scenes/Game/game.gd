@@ -22,8 +22,8 @@ func _ready():
 		character = space_character.create_instance()
 
 func setup_enemy_stats_dict() -> void:
-	enemy_stats_dict["pirate_and_fighter"] = preload("res://Battles/pirate_and_fighter.tres")
-	enemy_stats_dict["two_pirates"] = preload("res://Battles/two_pirates.tres")
+	enemy_stats_dict["pirate_and_fighter"] = preload("res://Enemy Encounters/pirate_and_fighter.tres")
+	enemy_stats_dict["two_pirates"] = preload("res://Enemy Encounters/two_pirates.tres")
 
 func return_to_story() -> void:
 	clear_current_view()
@@ -38,7 +38,7 @@ func leave_story(battle_scene: PackedScene, enemy_stats_key: String) -> void:
 	
 	var new_battle := battle_scene.instantiate() as Battle
 	new_battle.char_stats = character
-	new_battle.battle_stats = enemy_stats_dict[enemy_stats_key]
+	new_battle.enemy_encounter_stats = enemy_stats_dict[enemy_stats_key]
 	current_view.add_child(new_battle)
 
 func handle_battle_won() -> void:

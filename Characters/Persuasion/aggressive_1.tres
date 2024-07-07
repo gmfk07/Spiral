@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PersuasionCard" load_steps=3 format=3 uid="uid://bgu34npr3txog"]
+
+[ext_resource type="Script" path="res://Custom Resources/persuasion_card.gd" id="1_366n5"]
+[ext_resource type="Texture2D" uid="uid://0mlkfxhjyrlt" path="res://Sprites/UI/turret_shoot_icon_large.png" id="1_s5tuj"]
+
+[resource]
+script = ExtResource("1_366n5")
+suit = 2
+value = 1
+id = "Accuse"
+icon = ExtResource("1_s5tuj")
+tooltip_text = ""

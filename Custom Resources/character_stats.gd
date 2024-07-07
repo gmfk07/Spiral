@@ -1,5 +1,5 @@
 class_name CharacterStats
-extends Stats
+extends BattleStats
 
 @export var starting_deck: CardPile
 @export var cards_per_turn: int
@@ -24,7 +24,7 @@ func take_damage(damage: int) -> void:
 	if initial_health > health:
 		Events.player_hit.emit()
 
-func can_play_card(battle_card: BattleCard) -> bool:
+func can_play_battle_card(battle_card: BattleCard) -> bool:
 	return energy >= battle_card.cost
 
 func create_instance() -> Resource:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bcd32kogh0dq5"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy/enemy_action_picker.gd" id="1_u2dr7"]
+[ext_resource type="Script" path="res://Scenes/Battle/Enemy/enemy_action_picker.gd" id="1_u2dr7"]
 [ext_resource type="Script" path="res://Enemies/Ground Combat/Guard/guard_melee_action.gd" id="2_0bbd6"]
 [ext_resource type="Texture2D" uid="uid://ckgtrxw4elmb3" path="res://Sprites/UI/damage_icon.png" id="3_gop5t"]
 [ext_resource type="Script" path="res://Custom Resources/intent.gd" id="3_v6epx"]

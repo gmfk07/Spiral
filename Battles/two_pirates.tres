@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://m6ku3nsh73p"]
-
-[ext_resource type="PackedScene" uid="uid://ddtl0p3ox420" path="res://Battles/two_pirates.tscn" id="1_h53hj"]
-[ext_resource type="Script" path="res://Custom Resources/battle_stats.gd" id="1_xdwqi"]
-
-[resource]
-script = ExtResource("1_xdwqi")
-weight = 2.0
-enemies = ExtResource("1_h53hj")

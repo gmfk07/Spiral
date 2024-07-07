@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://4nndlrsbwyoi"]
+
+[ext_resource type="Theme" uid="uid://f2d0gj7br2yh" path="res://main_theme.tres" id="1_sams6"]
+[ext_resource type="Script" path="res://Scenes/Card UI/persuasion_card_ui.gd" id="2_8tmvs"]
+[ext_resource type="StyleBox" uid="uid://dtuumd4bmhr1g" path="res://Scenes/Card UI/card_dragging_stylebox.tres" id="3_s5aek"]
+[ext_resource type="Texture2D" uid="uid://cn6xf4f3typ2m" path="res://Sprites/UI/turret_shoot_icon.png" id="4_ndqbs"]
+[ext_resource type="Script" path="res://Scenes/Card UI/card_state_machine.gd" id="5_b4mk4"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Persuasion Card States/persuasion_card_base_state.gd" id="6_thovg"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Persuasion Card States/persuasion_card_selected_state.gd" id="7_hnkk8"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/Persuasion Card States/persuasion_card_deselected_state.gd" id="8_vpryw"]
+
+[node name="PersuasionCardUI" type="Control"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 60.0
+theme = ExtResource("1_sams6")
+script = ExtResource("2_8tmvs")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_s5aek")
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 1
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 18.0
+theme = ExtResource("1_sams6")
+text = "2"
+horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -15.5
+offset_right = 16.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ndqbs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_b4mk4")
+initial_state = NodePath("PersuasionCardBaseState")
+
+[node name="PersuasionCardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_thovg")
+
+[node name="PersuasionCardSelectedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_hnkk8")
+state = 5
+
+[node name="PersuasionCardDeselectedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_vpryw")
+state = 6
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://e8cs4xwx44ke"]
+
+[ext_resource type="Theme" uid="uid://f2d0gj7br2yh" path="res://main_theme.tres" id="1_kwtdm"]
+[ext_resource type="Script" path="res://Scenes/UI/battle_stats_ui.gd" id="2_1jp58"]
+[ext_resource type="Texture2D" uid="uid://ccgloufla3deq" path="res://Sprites/UI/evade_icon.png" id="2_4gix1"]
+[ext_resource type="Texture2D" uid="uid://mr53dux8rlmy" path="res://Sprites/UI/hull_icon.png" id="3_k05hr"]
+
+[node name="Stats UI" type="HBoxContainer"]
+offset_right = 90.0
+offset_bottom = 16.0
+theme = ExtResource("1_kwtdm")
+alignment = 1
+script = ExtResource("2_1jp58")
+
+[node name="Evade" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="EvadeImage" type="TextureRect" parent="Evade"]
+layout_mode = 2
+texture = ExtResource("2_4gix1")
+stretch_mode = 5
+
+[node name="EvadeLabel" type="Label" parent="Evade"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="HealthImage" type="TextureRect" parent="Health"]
+layout_mode = 2
+texture = ExtResource("3_k05hr")
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="Health"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1

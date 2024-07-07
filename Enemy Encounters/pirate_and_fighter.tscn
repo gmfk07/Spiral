@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ncj8butti5y"]
+
+[ext_resource type="PackedScene" uid="uid://hpfvbfq1itq7" path="res://Scenes/Battle/Enemy/enemy.tscn" id="1_ey78p"]
+[ext_resource type="Resource" uid="uid://ucfrmjjunva7" path="res://Enemies/Space Combat/Pirate/pirate.tres" id="2_gy1gi"]
+[ext_resource type="Resource" uid="uid://cgkyswprdpr72" path="res://Enemies/Space Combat/Fighter/fighter_enemy.tres" id="3_ygydy"]
+
+[node name="PirateAndFighter" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_ey78p")]
+position = Vector2(425, 97)
+stats = ExtResource("2_gy1gi")
+
+[node name="Enemy2" parent="." instance=ExtResource("1_ey78p")]
+position = Vector2(425, 169)
+stats = ExtResource("3_ygydy")
