@@ -7,6 +7,12 @@ extends HBoxContainer
 @onready var battle_card_ui := preload("res://Scenes/Card UI/battle_card_ui.tscn")
 @onready var persuasion_card_ui := preload("res://Scenes/Card UI/persuasion_card_ui.tscn")
 
+var selected_card_ui_array := []
+
+func _ready():
+	Events.card_selected.connect(_on_card_selected)
+	Events.card_deselected.connect(_on_card_deselected)
+
 func add_battle_card(battle_card: BattleCard) -> void:
 	var new_card_ui := battle_card_ui.instantiate()
 	add_child(new_card_ui)
@@ -39,3 +45,10 @@ func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	var new_index := clampi(child.original_index, 0, get_child_count())
 	move_child.call_deferred(child, new_index)
 	child.set_deferred("disabled", false)
+
+func _on_card_selected(card_ui: CardUI) -> void:
+	selected_card_ui_array.append(card_ui)
+
+func _on_card_deselected(card_ui: CardUI) -> void:
+	var index = selected_card_ui_array.find(card_ui)
+	selected_card_ui_array.remove_at(index)

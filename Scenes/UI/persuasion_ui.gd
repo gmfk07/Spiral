@@ -8,11 +8,16 @@ extends CanvasLayer
 @onready var discard_pile_button: CardPileOpener = %DiscardPileButton
 @onready var draw_pile_view: CardPileView = %DrawPileView
 @onready var discard_pile_view: CardPileView = %DiscardPileView
+@onready var discard_button: Button = %DiscardButton
 
 func _ready() -> void:
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 	draw_pile_button.pressed.connect(draw_pile_view.show_current_view.bind("Draw Pile", true))
 	discard_pile_button.pressed.connect(discard_pile_view.show_current_view.bind("Discard Pile"))
+	discard_button.disabled = true
+
+func _process(delta):
+	discard_button.disabled = hand.selected_card_ui_array.size() == 0
 
 func initialize_card_pile_ui() -> void:
 	draw_pile_button.card_pile = persuasion_stats.draw_pile

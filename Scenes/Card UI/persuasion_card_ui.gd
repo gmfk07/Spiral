@@ -1,3 +1,4 @@
+class_name PersuasionCardUI
 extends CardUI
 
 signal reparent_requested(which_card_ui: BattleCardUI)
@@ -11,6 +12,12 @@ const HOVER_STYLEBOX := preload("res://Scenes/Card UI/card_hover_style_box.tres"
 @onready var panel = $Panel
 @onready var value = $Value
 @onready var icon = $Icon
+
+func select() -> void:
+	Events.card_selected.emit(self)
+
+func deselect() -> void:
+	Events.card_deselected.emit(self)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
