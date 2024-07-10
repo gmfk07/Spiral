@@ -8,6 +8,7 @@ signal card_aim_ended(card_ui: CardUI)
 signal card_played(card: BattleCard)
 signal card_selected(card_ui: CardUI)
 signal card_deselected(card_ui: CardUI)
+signal card_discarded(card: Card)
 signal card_tooltip_requested(card: BattleCard)
 signal tooltip_hide_requested
 

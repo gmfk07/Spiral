@@ -36,6 +36,7 @@ offset_top = -40.0
 offset_right = 66.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 2
 script = ExtResource("12_sfj4h")
 
 [node name="DrawPileButton" parent="PersuasionUI" node_paths=PackedStringArray("counter") instance=ExtResource("5_5vu3e")]
@@ -104,3 +105,5 @@ visible = false
 [node name="DiscardPileView" parent="CardPileViews" instance=ExtResource("8_w5mi6")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="pressed" from="PersuasionUI/DiscardButton" to="." method="_on_discard_button_pressed"]

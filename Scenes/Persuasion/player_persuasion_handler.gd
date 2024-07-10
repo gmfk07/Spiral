@@ -13,6 +13,7 @@ func start_persuasion(given_stats: PersuasionStats) -> void:
 	persuasion_stats.draw_pile = persuasion_stats.deck.duplicate(true)
 	persuasion_stats.draw_pile.shuffle()
 	persuasion_stats.discard = CardPile.new()
+	Events.card_discarded.connect(_on_card_discard_requested)
 	start_turn()
 
 func start_turn() -> void:
@@ -42,3 +43,9 @@ func reshuffle_deck_from_discard() -> void:
 		persuasion_stats.draw_pile.add_card(persuasion_stats.discard.draw_card())
 	
 	persuasion_stats.draw_pile.shuffle()
+
+func discard_selected_cards() -> void:
+	hand.discard_selected_cards()
+
+func _on_card_discard_requested(card: Card) -> void:
+	persuasion_stats.discard.add_card(card)

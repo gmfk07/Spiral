@@ -20,3 +20,8 @@ func start_battle() -> void:
 	persuasion_ui.persuasion_stats = persuasion_stats
 	
 	persuasion_ui.initialize_card_pile_ui()
+
+
+func _on_discard_button_pressed():
+	player_handler.discard_selected_cards()
+	get_tree().create_timer(0.2, false).timeout.connect(player_handler.draw_cards)

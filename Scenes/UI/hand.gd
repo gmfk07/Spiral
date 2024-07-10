@@ -1,6 +1,8 @@
 class_name Hand
 extends HBoxContainer
 
+const MAX_SELECTED_CARDS := 5
+
 @export var char_stats: CharacterStats
 @export var persuasion_stats: PersuasionStats
 
@@ -37,6 +39,15 @@ func discard_card(card: CardUI) -> void:
 func disable_hand() -> void:
 	for card in get_children():
 		card.disabled = true
+
+func is_selection_full() -> bool:
+	return selected_card_ui_array.size() >= MAX_SELECTED_CARDS
+
+func discard_selected_cards() -> void:
+	for card_ui in selected_card_ui_array:
+		Events.card_discarded.emit(card_ui.persuasion_card)
+		card_ui.queue_free()
+	selected_card_ui_array = []
 
 func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	child.disabled = true

@@ -22,7 +22,8 @@ func enter() -> void:
 	Events.tooltip_hide_requested.emit()
 	
 func on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse") and all_cards_placed:
+	var selected_cards_full = card_ui.get_parent().is_selection_full()
+	if event.is_action_pressed("left_mouse") and all_cards_placed and not selected_cards_full:
 		transition_requested.emit(self, CardState.State.SELECTED)
 		card_ui.select()
 
