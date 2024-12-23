@@ -6,17 +6,16 @@ const HAND_DISCARD_INTERVAL := 0.25
 
 @export var hand: Hand
 
+var chips := 15
 var persuasion_stats: PersuasionStats
 
 func start_persuasion(given_stats: PersuasionStats) -> void:
 	persuasion_stats = given_stats
+	chips = persuasion_stats.chips
 	persuasion_stats.draw_pile = persuasion_stats.deck.duplicate(true)
 	persuasion_stats.draw_pile.shuffle()
 	persuasion_stats.discard = CardPile.new()
 	Events.card_discarded.connect(_on_card_discard_requested)
-	start_turn()
-
-func start_turn() -> void:
 	draw_cards()
 
 func draw_card() -> void:
@@ -46,6 +45,11 @@ func reshuffle_deck_from_discard() -> void:
 
 func discard_selected_cards() -> void:
 	hand.discard_selected_cards()
+
+#Changes the amount of chips by delta. Returns true if all in and false otherwise
+func change_chip_count(delta: int) -> bool:
+	chips = chips + delta
+	return chips == 0
 
 func _on_card_discard_requested(card: Card) -> void:
 	persuasion_stats.discard.add_card(card)

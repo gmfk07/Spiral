@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxkvn6xdp1vav"]
+
+[ext_resource type="Script" path="res://Scenes/UI/bet_widget_ui.gd" id="1_mxxmv"]
+[ext_resource type="Texture2D" uid="uid://jkebpyvyg4k8" path="res://Sprites/UI/subtract_icon.png" id="2_tudaj"]
+[ext_resource type="Texture2D" uid="uid://xqscwuilrf0t" path="res://Sprites/UI/subtract_icon_pressed.png" id="3_kyyu8"]
+[ext_resource type="Texture2D" uid="uid://cxjpxh63ixe4" path="res://Sprites/UI/add_icon.png" id="4_f7kby"]
+[ext_resource type="Texture2D" uid="uid://d4ahbyradcdep" path="res://Sprites/UI/add_icon_pressed.png" id="5_2e0a5"]
+
+[node name="BetWidgetUI" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -360.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_mxxmv")
+
+[node name="SubtractButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_tudaj")
+texture_pressed = ExtResource("3_kyyu8")
+texture_disabled = ExtResource("3_kyyu8")
+
+[node name="BetPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BetLabel" type="Label" parent="BetPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Bet: 0"
+horizontal_alignment = 1
+
+[node name="AddButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("4_f7kby")
+texture_pressed = ExtResource("5_2e0a5")
+texture_disabled = ExtResource("5_2e0a5")
+
+[connection signal="pressed" from="SubtractButton" to="." method="_on_subtract_button_pressed"]
+[connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]

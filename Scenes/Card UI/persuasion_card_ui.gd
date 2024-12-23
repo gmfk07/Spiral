@@ -3,9 +3,6 @@ extends CardUI
 
 signal reparent_requested(which_card_ui: BattleCardUI)
 
-const BASE_STYLEBOX := preload("res://Scenes/Card UI/card_base_style_box.tres")
-const HOVER_STYLEBOX := preload("res://Scenes/Card UI/card_hover_style_box.tres")
-
 @export var persuasion_card: PersuasionCard : set = _set_card
 @export var persuasion_stats: PersuasionStats : set = _set_stats
 

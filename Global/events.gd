@@ -15,6 +15,7 @@ signal tooltip_hide_requested
 #Player-related events
 signal player_hand_drawn
 signal player_hand_discarded
+signal player_bet_confirmed
 signal player_turn_ended
 signal player_hit
 signal player_died

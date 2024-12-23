@@ -2,6 +2,7 @@ class_name CardPileView
 extends Control
 
 const BATTLE_CARD_MENU_UI_SCENE := preload("res://Scenes/UI/battle_card_menu_ui.tscn")
+const PERSUASION_CARD_MENU_UI_SCENE := preload("res://Scenes/UI/persuasion_card_menu_ui.tscn")
 
 @export var card_pile: CardPile
 
@@ -46,6 +47,11 @@ func _update_view(randomized: bool) -> void:
 			var new_card := BATTLE_CARD_MENU_UI_SCENE.instantiate() as BattleCardMenuUI
 			cards.add_child(new_card)
 			new_card.battle_card = card
+			new_card.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
+		elif card is PersuasionCard:
+			var new_card := PERSUASION_CARD_MENU_UI_SCENE.instantiate() as PersuasionCardMenuUI
+			cards.add_child(new_card)
+			new_card.persuasion_card = card
 			new_card.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
 	
 	show()
